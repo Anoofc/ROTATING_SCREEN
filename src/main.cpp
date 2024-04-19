@@ -21,8 +21,10 @@ uint16_t prevAngle = 0;
 void sendCMD()
 {
   if (currentDiscAngle % STEP == 0)
-  {
-    if      (currentDiscAngle < prevDiscAngle) { Serial.println("L"); }
+  { 
+    if (currentDiscAngle == 0 && prevDiscAngle == 360) { prevDiscAngle = 0; Serial.println("R");} // For correcting the direction of rotation
+    else if (currentDiscAngle == 360 && prevDiscAngle == 0) { prevDiscAngle = 360; Serial.println("L");} // For correcting the direction of rotation
+    else if (currentDiscAngle < prevDiscAngle) { Serial.println("L"); }
     else if (currentDiscAngle > prevDiscAngle) { Serial.println("R"); }
   }
 }
