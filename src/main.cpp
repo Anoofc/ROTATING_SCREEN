@@ -35,7 +35,6 @@ void setup()
   SERVO.pSerial = &Serial2;
   delay(500);
   SERVO.EnableTorque(1, 0);
-  SERVO.EnableTorque(2, 1);
 }
 
 void loop()
